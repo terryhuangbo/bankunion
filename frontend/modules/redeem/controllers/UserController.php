@@ -42,7 +42,7 @@ class UserController extends BaseController
         if(empty($url) || Yii::$app->request->absoluteUrl === $url){
             $url = Yii::$app->homeUrl;
         }
-        return Yii::$app->response->redirect($url);
+        $this->_json(20000, '', ['redirectUrl' => $url]);
     }
 
     /**

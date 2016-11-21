@@ -229,6 +229,11 @@
             type: reqtype,
             dataType: rettype,
             success: function (d) {
+                //实现跳转
+                if(d.data.redirectUrl){
+                    window.location.href = d.data.redirectUrl;
+                    return
+                }
                 if (typeof callback == "function") {
                     callback(d);
                 }
