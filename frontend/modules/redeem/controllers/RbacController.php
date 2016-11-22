@@ -15,7 +15,7 @@ class RbacController extends BaseController
     public $defaulAction = 'init';
 
     /**
-     * 商品列表
+     * 初始化
      * @return type
      */
     public function actionInit()
@@ -51,6 +51,21 @@ class RbacController extends BaseController
         // 给用户指定角色，1和2是IdentityInterface::getId()返回的ID，就是用户ID。
         $auth->assign($author, 2);
         $auth->assign($admin, 1);
+
+        // add the rule
+        //添加一条规则
+        $rule = new \app\rbac\AuthorRule;
+        // add the "updateOwnPost" permission and associate the rule with it.
+        //添加“updateOwnPost”权限，并且和上面的规则关联起来
+        $updateOwnPost = $auth->createPermission('updateOwnPost');
+        $updateOwnPost->description = 'Update own post';
+        $updateOwnPost->ruleName = $rule->name;
+        $auth->add($updateOwnPost);//将Permission添加到系统当中
+
+        // "updateOwnPost" will be used from "updatePost"
+        $auth->addChild($updateOwnPost, $updatePost);
+        // allow "author" to update their own posts
+        $auth->addChild($author, $updateOwnPost);
     }
 
     public function actionTest()
@@ -61,6 +76,10 @@ class RbacController extends BaseController
         $auth->assign($authRole, $user->getId());
     }
 
+    /**
+     * 权限校验
+     * @return type
+     */
     public function actionCan()
     {
         $param = [
@@ -68,7 +87,7 @@ class RbacController extends BaseController
                 'uid' => 2
             ]
         ];
-        if (Yii::$app->user->can('updatePost', $param, false)) {
+        if (Yii::$app->user->can('updateOwnPost', $param, false)) {//或者是createPost，admin，author
             echo '哈哈！我有权限！';
         }else{
             echo '糟糕！我没有权限！';

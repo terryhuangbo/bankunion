@@ -5,6 +5,5 @@ return [
     ],
     1 => [
         'admin',
-        'author',
     ],
 ];
