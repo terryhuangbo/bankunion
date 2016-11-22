@@ -222,6 +222,21 @@ class BaseController extends Controller
         }
     }
 
+    /**
+     * 跳转到链接
+     * @param string $url
+     * @param int $statusCode 状态码，可以是301,302,304,307,308等；默认为302
+     * @return string
+     */
+    public function redirect($url, $statusCode = 302) {
+        if (Yii::$app->getRequest()->getIsAjax())
+        {
+            return $this->_to_json(['code' => 30201, 'redirectUrl' => $url]);
+        }else{
+            return parent::redirect($url, $statusCode);
+        }
+    }
+
 }
 
 ?>
