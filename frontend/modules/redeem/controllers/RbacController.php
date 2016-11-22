@@ -53,4 +53,27 @@ class RbacController extends BaseController
         $auth->assign($admin, 1);
     }
 
+    public function actionTest()
+    {
+        $user = Yii::$app->user->identity;
+        $auth = Yii::$app->authManager;
+        $authRole = $auth->getRole('author');
+        $auth->assign($authRole, $user->getId());
+    }
+
+    public function actionCan()
+    {
+        $param = [
+            'post' => [
+                'uid' => 2
+            ]
+        ];
+        if (Yii::$app->user->can('updatePost', $param, false)) {
+            echo '哈哈！我有权限！';
+        }else{
+            echo '糟糕！我没有权限！';
+        }
+    }
+
+
 }

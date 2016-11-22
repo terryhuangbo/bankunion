@@ -230,7 +230,7 @@
             dataType: rettype,
             success: function (d) {
                 //实现跳转
-                if(d.data.redirectUrl){
+                if(d.data && d.data.redirectUrl){
                     window.location.href = d.data.redirectUrl;
                     return
                 }
