@@ -105,6 +105,7 @@ class PhpManager extends BaseManager
      */
     public function getAssignments($userId)
     {
+
         return isset($this->assignments[$userId]) ? $this->assignments[$userId] : [];
     }
 
@@ -130,11 +131,9 @@ class PhpManager extends BaseManager
         /* @var $item Item */
         $item = $this->items[$itemName];
         Yii::trace($item instanceof Role ? "Checking role: $itemName" : "Checking permission : $itemName", __METHOD__);
-
         if (!$this->executeRule($user, $item, $params)) {
             return false;
         }
-
         if (isset($assignments[$itemName]) || in_array($itemName, $this->defaultRoles)) {
             return true;
         }
@@ -359,6 +358,7 @@ class PhpManager extends BaseManager
      */
     public function getRule($name)
     {
+
         return isset($this->rules[$name]) ? $this->rules[$name] : null;
     }
 

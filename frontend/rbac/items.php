@@ -3,9 +3,6 @@ return [
     'createPost' => [
         'type' => 2,
         'description' => 'Create a post',
-        'children' => [
-            'updateOwnPost',
-        ],
     ],
     'updatePost' => [
         'type' => 2,
