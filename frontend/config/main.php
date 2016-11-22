@@ -37,6 +37,9 @@ return [
             'enableAutoLogin' => true,
             'loginUrl' => ['redeem/user/login'],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager', //用文件管理
+        ],
         'jssdk' => [
             'class' => 'app\components\Wechat\Jssdk',
             'appId' => 'wx9462dd181a56c284',
