@@ -21,6 +21,8 @@ class RbacController extends BaseController
     public function actionInit()
     {
         $auth = Yii::$app->authManager;
+        //先清除所有的数据
+        $auth->removeAll();
         /*创建权限*/
         // add "createPost" permission 添加“创建文章”的权限
         $createPost = $auth->createPermission('createPost');
@@ -86,6 +88,8 @@ class RbacController extends BaseController
     public function actionInit1()
     {
         $auth = Yii::$app->authManager;
+        //先清除所有的数据
+        $auth->removeAll();
         $rule = new \app\rbac\rules\UserGroupRule;
         $auth->add($rule);
 
@@ -128,6 +132,7 @@ class RbacController extends BaseController
             ]
         ];
         $auth = Yii::$app->authManager;
+        $auth->getChildren('admin');
         //使用方法一
         $auth->checkAccess(1, 'author');
         //使用方法二（常用）

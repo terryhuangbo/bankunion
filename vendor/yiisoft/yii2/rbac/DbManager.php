@@ -714,7 +714,6 @@ class DbManager extends BaseManager
         foreach ($query->all($this->db) as $row) {
             $children[$row['name']] = $this->populateItem($row);
         }
-
         return $children;
     }
 
@@ -747,7 +746,6 @@ class DbManager extends BaseManager
             'roleName' => $role->name,
             'createdAt' => time(),
         ]);
-
         $this->db->createCommand()
             ->insert($this->assignmentTable, [
                 'user_id' => $assignment->userId,
