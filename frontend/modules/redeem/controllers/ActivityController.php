@@ -26,6 +26,18 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
+        $ret = openssl_get_cipher_methods();
+
+        $data = 'huangbo';
+        $password = '12';
+        $key = '12';
+        $ret1 = Yii::$app->security->encryptByPassword($data, $password);
+        $ret2 = Yii::$app->security->decryptByPassword($ret1, $password);
+//        $ret = Yii::$app->security->generateRandomKey(8);
+        var_dump($ret2);
+        return;
+
+
         return $this->render('index');
     }
 
