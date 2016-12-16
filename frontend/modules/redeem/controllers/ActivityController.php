@@ -26,6 +26,10 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
+        Yii::info('huangbo, this is an info', __METHOD__);
+        Yii::warning('huangbo, this is a warning', __METHOD__);
+        Yii::error('huangbo, this is an error', __METHOD__);
+        Yii::trace('huangbo, this is a trace', __METHOD__);
         return $this->render('index');
     }
 
