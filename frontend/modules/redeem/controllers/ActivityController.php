@@ -27,23 +27,15 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
-        Yii::info('huangbo, this is an info', __METHOD__);
-        Yii::warning('huangbo, this is a warning', __METHOD__);
-        Yii::error('huangbo, this is an error', __METHOD__);
-        Yii::trace('huangbo, this is a trace', __METHOD__);
+        Yii::beginProfile('huangbo', __METHOD__);
+        	Yii::info('huangbo, this is an info', __METHOD__);
+            Yii::warning('huangbo, this is a warning', __METHOD__);
+            Yii::error('huangbo, this is an error', __METHOD__);
+            Yii::trace('huangbo, this is a trace', __METHOD__);
+        Yii::endProfile('huangbo', __METHOD__);
 
-        Yii::beginProfile('黄波的测试', __METHOD__);
-        sleep(1);
-            Yii::beginProfile('黄波的测试1', __METHOD__);
-            sleep(1);
 
-            Yii::endProfile('黄波的测试1', __METHOD__);
-        Yii::endProfile('黄波的测试', __METHOD__);
-
-        //分析结果
-        $profiles = Yii::getLogger()->getProfiling(['frontend\*'], ['backend\*']);
-        //直接体现时间
-        $times = ArrayHelper::map($profiles, 'info', 'duration');
+       
 
         return $this->render('index');
     }

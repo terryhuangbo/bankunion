@@ -24,4 +24,10 @@ $config = yii\helpers\ArrayHelper::merge(
 );
 error_reporting(E_NOTICE);
 $application = new yii\web\Application($config);
+if(YII_ENV_DEV && YII_DEBUG)
+{
+    $application->on('beforeRequest', 'appProfile');
+    $application->on('afterRequest', 'codeProfile');
+}
 $application->run();
+

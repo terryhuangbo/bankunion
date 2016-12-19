@@ -203,13 +203,37 @@ function _check_file_exists($url) {
  * 用于Debug记录日志，路径为根目录下
  * *@param string|array|int $content
  * *@param int $type 1-清空重新输入；0-换行追加追加
+ * *@param string $file 文件名字
  * @return boolean
  */
-function lg($content, $type = 1){
-    $path = dirname(dirname(__DIR__));
+function lg($content, $type = 1, $file = "1.txt"){
+    $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR;
     if($type){
-        file_put_contents($path . "/1.txt", print_r($content ,true));
+        file_put_contents($path . $file , print_r($content ,true));
     }else{
-        file_put_contents($path . "/1.txt", "\r\n" . print_r($content ,true), FILE_APPEND);
+        file_put_contents($path .$file, "\r\n" . print_r($content ,true), FILE_APPEND);
     }
 }
+
+/**
+ * 用于分析代码片段执行的时间
+ * @return array
+ */
+function codeProfile() {
+    Yii::endProfile('application', 'application');
+    //分析结果
+    $profiles = Yii::getLogger()->getProfiling(['frontend\*', 'backend\*', 'application'], []);
+    //直接体现时间
+    $times = yii\helpers\ArrayHelper::map($profiles, 'info', 'duration');
+    lg($times, 1, '2.txt');
+    lg($profiles, 0, '2.txt');
+}
+
+/**
+ * 用于分析Application执行的时间
+ * @return array
+ */
+function appProfile() {
+    Yii::beginProfile('application', 'application');
+}
+
