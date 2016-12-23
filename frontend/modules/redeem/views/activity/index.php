@@ -23,7 +23,9 @@
     <a href="/activity/ln" class="ln"></a>
     <a id="rule" class="rule"></a>
     <a class="sign"></a>
-    <a href="http://view.zuikuapp.com/s/na/1665_836440.html" target="_blank" class="shake"></a>
+    <a class="shake"></a>
+    <img class="tree" src="/images/tree.png">
+    <a href="http://view.zuikuapp.com/s/na/1293_876821.html"><img class="right" src="/images/right.gif"></a>
 </div>
 <div class="fixBg">
     <div class="ruleDetail">
