@@ -8,7 +8,10 @@ use common\models\Points;
 use common\models\PointsRecord;
 use Yii;
 use app\base\BaseController;
+use yii\base\Exception;
+use yii\base\UserException;
 use yii\helpers\ArrayHelper;
+use yii\web\HttpException;
 
 
 class ActivityController extends BaseController
@@ -27,14 +30,12 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
-        Yii::beginProfile('huangbo', __METHOD__);
-        	Yii::info('huangbo, this is an info', __METHOD__);
-            Yii::warning('huangbo, this is a warning', __METHOD__);
-            Yii::error('huangbo, this is an error', __METHOD__);
-            Yii::trace('huangbo, this is a trace', __METHOD__);
-        Yii::endProfile('huangbo', __METHOD__);
 
 
+//        throw new UserException(401, '黄波的测试' );
+        $t = new Huangbo();
+//        trigger_error('wo lai d d', E_USER_ERROR);
+//        ht(1);
        
 
         return $this->render('index');
