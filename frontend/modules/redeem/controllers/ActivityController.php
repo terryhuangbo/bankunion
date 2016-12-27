@@ -12,6 +12,7 @@ use yii\base\Exception;
 use yii\base\UserException;
 use yii\helpers\ArrayHelper;
 use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 
 class ActivityController extends BaseController
@@ -32,11 +33,14 @@ class ActivityController extends BaseController
     {
 
 
-//        throw new UserException(401, '黄波的测试' );
-        $t = new Huangbo();
-//        trigger_error('wo lai d d', E_USER_ERROR);
+//        throw new UserException('黄波的测试' );
+//        throw new NotFoundHttpException('黄波的测试' );
+//        $t = new Huangbo();
+//        trigger_error('wo lai d d', E_NOTICE);
+//        trigger_error('wo lai d d', E_USER_WARNING);
 //        ht(1);
-       
+        $hb = [];
+        $th = $hb['hb'];
 
         return $this->render('index');
     }
