@@ -3,6 +3,7 @@
 namespace frontend\modules\redeem\controllers;
 
 use common\behavior\PointBehavior;
+use common\lib\Http;
 use common\models\Activity;
 use common\models\Points;
 use common\models\PointsRecord;
@@ -11,6 +12,7 @@ use app\base\BaseController;
 use yii\base\Exception;
 use yii\base\UserException;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 
@@ -31,18 +33,33 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
+        $touser = "oZFzUt4oudWrJwmmaWQ_RvtLSn6I";
+        $content = '黄波测试，哈哈哈';
+        $APPID = "wxc4c37b00bea02be5";
+        $APPSECRET = "f68118d962389fb6f3c6945f3b559244";
+
+        $TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $APPID . "&secret=" . $APPSECRET;
+
+        $json = file_get_contents($TOKEN_URL);
+        $result = json_decode($json);
+
+        $ACC_TOKEN = $result->access_token;
+        $data = [
+            'touser' => $touser,
+            'msgtype' => 'text',
+            'text' => [
+                'content' => $content
+            ],
+        ];
 
 
-//        throw new UserException('黄波的测试' );
-//        throw new NotFoundHttpException('黄波的测试' );
-//        $t = new Huangbo();
-//        trigger_error('wo lai d d', E_NOTICE);
-//        trigger_error('wo lai d d', E_USER_WARNING);
-//        ht(1);
-        $hb = [];
-        $th = $hb['hb'];
+        $url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" . $ACC_TOKEN;
+        $data = json_encode($data);
+        $result = json_decode(Http::_post($url, $data), true);
+        lg($ACC_TOKEN);
+        return VarDumper::export($result);
 
-        return $this->render('index');
+//        return $this->render('index');
     }
 
     /**
