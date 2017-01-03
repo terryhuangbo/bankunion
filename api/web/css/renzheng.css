@@ -1,0 +1,88 @@
+body{background:#ececec;}
+.title{padding:15px;}
+.title span{
+	font-size: 14px;
+	background: #fab700;
+	color: #fff;
+	display: inline-block;
+	padding: 5px 16px;
+}
+.form-group{
+	padding: 0 15px;
+	margin-bottom:10px;
+}
+.form-group label{
+	position: absolute;
+	font-size: 14px;
+	padding: 5px;
+	color:#606060;
+	margin-left:6px;
+}
+.form-group label span{color:#dc041e;}
+.form-group input,.form-group select{
+	width:100%;
+	padding:6px;
+	padding-left: 100px;
+	box-sizing:border-box;
+	border:1px solid #d2d2d2;
+	border-radius:6px;
+	outline:none;
+	background:#fff;
+}
+.box{
+	background:#fff;
+	border:1px solid #d2d2d2;
+	border-radius:6px;
+	padding:5px;
+}
+.type{
+	padding: 10px 15px;
+	border-bottom:1px solid #d2d2d2;
+}
+.type .left{
+	font-size: 14px;
+	color: #606060;
+	width: 100%;
+	display: inline-block;
+}
+/*.type .right{
+	width: 50%;
+    float: right;
+    text-align: right;
+    font-size:14px;
+}*/
+.type .right a{
+	text-decoration: none;
+	color: #fff;
+	background: #fab700;
+	display: inline-block;
+	padding: 2px 14px;
+}
+.pic{
+	padding:15px;
+}
+.pic .img{
+	width: 25%;
+	display: inline-block;
+	margin-right:2%;
+}
+.pb{
+	width:100%;
+	height:41px;
+}
+.button{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+.button .btn{
+	text-align: center;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	background: #fab700;
+	color: #fff;
+	padding: 10px;
+	box-sizing: border-box;
+}

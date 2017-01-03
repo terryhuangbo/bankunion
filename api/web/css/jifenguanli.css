@@ -1,0 +1,45 @@
+.header-box{
+	padding: 5px 15px;
+	margin-top: 10px;
+	height:60px;
+}
+.head_portrait{
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 1px solid #fab700;
+	float: left;
+}
+.basic{
+	width: 72%;
+	display: inline-block;
+	font-size: 14px;
+	color: #606060;
+	margin-left:4%;
+	margin-top:10px;
+}
+.basic .integral span{
+	color:#fab700;
+}
+table.box{
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #fab700;
+	font-size: 14px;
+}
+table.box tr{
+	padding: 0 15px;
+}
+table.box th{
+	color:#fab700;
+	font-weight:normal;
+	padding: 5px;
+	border-bottom: 1px solid #a0a0a0;
+}
+table.box td{
+	width:33%;
+	padding: 5px;
+	color:#606060;
+}

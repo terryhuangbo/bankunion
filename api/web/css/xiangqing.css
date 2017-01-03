@@ -1,0 +1,118 @@
+header .left{
+	position:absolute;
+	width:18px;
+	top:8%;
+	left:30%;
+}
+header .right{
+	position:absolute;
+	top:8%;
+	right:30%;
+}
+header .right img{
+	width:23px;
+	margin-right:5px;
+}
+.box{
+	color:#606060;
+	padding-bottom:53px;
+}
+.pic{
+	padding: 0 15px;
+	margin-top: 15px;
+	overflow:hidden;
+}
+.title{
+	font-size: 14px;
+	padding: 10px 15px;
+	border-bottom: 1px solid #fab700;
+}
+.integral,.prompt,.details{
+	font-size: 12px;
+	padding: 10px 15px;
+	border-bottom: 1px solid #fab700;
+}
+.details a{
+	text-decoration:none;
+	color:#606060;
+}
+.integral span{
+	font-size:18px;
+	color:#fab700;
+}
+.details span{
+	color:#aaa;
+}
+.details img{
+	width: 18px;
+	float: right;
+}
+.count{
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.count input{
+	width: 16px;
+	text-align: center;
+	color: #e60012;
+	outline: none;
+	border: 1px solid #e60012;
+	float: right;
+	margin-right: 5px;
+}
+.count img{
+	width:12px;
+	float: right;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+.exchange{
+	background: #dadada;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding:15px;
+	font-size:14px;
+}
+.exchange .needIntegral{
+	width:50%;
+	display:inline-block;
+	text-align:center;
+	padding:2px 0;
+	font-size:12px;
+}
+.exchange .needIntegral span{
+	font-size:16px;
+	color:#fab700;
+}
+.exchange .button{
+	width:33%;
+	float:left;
+	text-align:center;
+}
+.exchange .button.add{
+	width:36%;
+}
+.exchange .button .btn{
+	display: inline-block;
+	padding: 2px 20px;
+	background: #fbc03d;
+	color: #fff;
+	text-decoration: none;
+	border-radius:6px;
+}
+.exchange .button.add .btn{
+	background:#f49098;
+}
+@media (max-width: 767px){
+	header .left{
+		top:5px;
+		left:10px;
+	}
+	header .right{
+		top:7px;
+		right:0px;
+	}
+}

@@ -1,0 +1,39 @@
+*{margin:0;padding:0;}
+html,body{height:100%;font-family:"微软雅黑";}
+.body-All{width:320px;margin:auto;height:100%;margin-top:10%;}
+header{
+	background:#fab700;
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+	height:32.5px;
+	line-height:32.5px;
+	padding: 0 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	}
+header .back{
+	position:absolute;
+	top:7.5%;
+	left:29%;
+}
+header .home{
+	position:absolute;
+	width:20px;
+	top:8%;
+	right:30%;
+}
+img{width:100%;}
+a{text-decoration:none;}
+@media (max-width: 767px){
+	.body-All{width:100%;margin-top:0;}
+	header .back{
+		top:-1px;
+		left:0;
+	}
+	header .home{
+		top:5px;
+		right:10px;
+	}
+}

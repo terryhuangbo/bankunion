@@ -1,0 +1,145 @@
+@import "reset.css";
+html,body{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+/*活动页面*/
+.bg{width:100%; height:100%;background: url("../images/indexBg.png") no-repeat center;
+    background-size:100% 100%; position: relative;}
+.rule{display: block; width:33.28125%;height:14.210526%;  position: absolute;top:73.070175%;left:32.65625%;
+    background: url("../images/actrule.png") no-repeat;background-size:100% 100%; }
+.sign{display: block; width:37.03125%;height:12.45614%;  position: absolute;top:83.421053%;left:4.53125%;
+    background: url("../images/sign.png") no-repeat;background-size:100% 100%; }
+.shake{display: block; width:37.1875%;height:12.45614%;  position: absolute;top:83.421053%;left:58.125%;
+    background: url("../images/shake.png") no-repeat;background-size:100% 100%; }
+.hlj{display: block; width:47.65625%;height:21.578947%;  position: absolute;top:36.140351%;left:0;}
+.jl{display: block; width:28.4375%;height:22.192982%;  position: absolute;top:43.859649%;left:55.46875%;}
+.ln{display: block; width:52.34375%;height:29.8245614%;  position: absolute;top:14.210526%;left:47.65625%;}
+.fixBg{position: fixed; width:100%; height:100%;display: none;top:0;left:0;}
+.ruleDetail{background: url("../images/rule.png") no-repeat; background-size:100% 100%; width:95.3125%;
+height:83.333333%; position: absolute; z-index: 10;top:6.140351%; left:2.34375%;}
+.ruleDetail a{width:150px; height:150px; float: right; position: absolute; right:0;}
+.ruleDetail .content{height:70%; overflow-y: auto; width:80%;margin:30% auto;}
+.ruleDetail .content h2{color:#d0121b; font-size:13px; line-height: 50px;}
+.ruleDetail .content p{color:#5f5f5f; font-size:13px; line-height: 1.7;}
+.fl{ float: left;}
+.fr{ float: right;}
+.pop{background: url("../images/pop.png") no-repeat;background-size:100% 100%; width:92.982456%; height:92%;
+position: absolute;z-index: 10;top:3.421053%;left:2.65625%;}
+.pop a{width:50px; height:50px; float: right; position: absolute; right:0;}
+.pop .title{height:80px;width:100%;text-align: center;}
+.pop .title img{ width:100px;display: block;margin:10px auto;}
+.pop .title .line{width:90%;height:2px; background: url("../images/line.png") no-repeat; background-size:100% 100%;margin:5px auto; }
+.pop .actInfo{margin:10px auto;width:90%; overflow-y: auto;height:80%;}
+.pop .actInfo ul{width:100%;}
+.pop .actInfo ul:after{content: "."; clear: both;display: block;}
+.pop .actInfo ul li{ float: left; line-height: 25px; font-size: 13px;}
+.pop .actInfo ul li:first-child{width:25%;}
+.pop .actInfo ul li:last-child{width:75%;}
+.pop .actInfo table tr td{line-height: 25px; font-size:13px;}
+/*积分商城*/
+.top{height:50px;position: absolute;top:0;width:94%; background: #75d2fe;padding:0 3%; }
+.top a{ line-height: 50px; color:#fff; font-size:14px; position: absolute;}
+.top a.back{top:0;left:10px;}
+.top a.back img{ float: left;margin:15px 5px;}
+.top a.user{top:0;right:10px;}
+.top a.user img{height:30px; margin:10px 0;}
+.top p{ line-height: 50px; color:#fff; font-size:16px;text-align: center;}
+.banner{width:100%;margin: 60px 0 10px 0;}
+.banner img{width:100%;}
+.info{width:95%;margin:0 auto; border:1px solid #75d2fe;height:80px;}
+.info .name{width:65%; float: left; border-right:1px solid #75d2fe;height:80px;}
+.info .name .tx{ height:60px;width:60px; border-radius: 50%; border:1px solid #000; overflow: hidden;margin:10px 5px; float: left;}
+.info .name .tx img{ height:60px;}
+.info .name p{line-height: 25px; font-size:14px; color:#606060; font-weight: bold;}
+.info .name p.fc{margin-top:15px;}
+.info .name p span{color:#ff0000;margin-left: 10px;}
+.info .signBtn{width:34%;height:80px; float: right;}
+.info .signBtn a{display: block;line-height: 25px; width:60px; padding:0 10px; text-align: center; background: #75d2fe;
+    color:#fff; margin:30px auto; border-radius: 6px;}
+.goodsList{width:95%;margin:10px auto;}
+.goodsList .goods{width:100%;background: #ebebeb;padding:10px 0; margin:10px 0;}
+.goodsList .goods table{ width:95%;margin:0 auto;}
+.goodsList .goods table tr td:first-child img{width:100px;}
+.goodsList .goods table tr td p{line-height: 30px; font-size:13px; font-weight: bold;}
+.goodsList .goods table tr td p label{font-size: 13px; color:#6b6b6b;font-weight: normal;}
+.goodsList .goods table tr td p span{color:#ff0000; font-size:20px; margin-right:5px;}
+.goodsList .goods table tr td:nth-child(3) img{ width:10px;}
+.goodsList .goods table tr td a{display: block; width:50px;height:50px;background: url("../images/change.png") no-repeat center;
+background-size:100% 100%;margin:0 auto; }
+/*商品详情*/
+.detail{width:100%;margin:60px auto 0 auto; padding-bottom: 80px; }
+.detail > img{width:95%;display: block;margin:0 auto;}
+.detail ul{width:100%; margin-top:20px;}
+.detail ul li{width:100%; height:40px; border-bottom: 1px solid #75d2fe; text-indent: 10px; line-height: 40px;}
+.detail ul li p{ font-size:14px; color:#606060; font-weight: bold;}
+.detail ul li small{ font-size:12px; color:#606060;}
+.detail ul li p span{ font-size:18px; color:#ff0000; margin:0 5px;}
+.detail ul li small span{ color:#aaaaaa; margin:0 5px;}
+.detail ul li img{ float: right;display: block;margin:15px 10px; width:10px;}
+.exchange{ width:100%; height:50px; background: #dadada;position: fixed; bottom: 0;}
+.exchange a{ float: right; background: #75d2fe; color:#fff;padding:8px 20px; display: block;border-radius: 6px;
+    margin:8px 10px;  letter-spacing: 4px; font-size:14px; font-weight: bold;}
+/*确认兑换*/
+.queryExchange{width: 100%;margin:60px auto 0 auto;}
+.queryExchange .view{width:95%; border-bottom:1px solid #75d2fe;padding:0 2.5%;}
+.queryExchange .view img{width:150px;}
+.queryExchange .view .infoDetail{ float: right; width:50%;}
+.queryExchange .view .infoDetail p{line-height: 30px; font-size:12px; font-weight: bold;}
+.queryExchange .view .infoDetail p:first-child{margin-top:40px;}
+.queryExchange .view .infoDetail p span{color:#fd0000;font-size:18px; margin:0 5px;}
+.queryExchange .infoWrite{width:80%; margin:30px auto;  }
+.queryExchange .infoWrite table{ width:100%; height:200px;font-size:13px; }
+.queryExchange .infoWrite table tr td input,.queryExchange .infoWrite table tr td select{ width:100%; border-radius: 3px;
+border:1px solid #ccc; background: #fff; outline: none; height:25px; font-size:13px; text-indent: 5px;}
+.confirm{position: absolute;bottom: 0; width:100%; height:50px;line-height: 50px;}
+.confirm a{display: block;width:100%; height:100%; text-align: center; color:#fff; background: #75d2fe; font-size: 14px;letter-spacing: 4px;}
+.record{width: 100%;margin:60px auto 0 auto;}
+.record .recordList{width:95%; margin:20px auto;}
+.record .recordList p{font-size:12px;line-height: 25px; font-weight: bold;}
+.record .recordList table{ background: #ebebeb; width:100%; font-weight: bold; font-size:12px;}
+.record .recordList table img{ width:80px;display: block; margin:5px;}
+.record .recordList table span{ color:#ff0000; margin:0 5px;}
+/*商户页面-黑龙江*/
+.btn{display: block; position: absolute;width:22.34375%;height:0.05%;top:32.45614%; left:38.59375%;}
+.hljs{width:100%; height:100%;position: absolute;top:0;left:0; background: url("../images/ssBg.png") no-repeat center;
+    background-size:100% 100%; }
+.hljs img{width:100%;}
+.mdl{display: block;position:absolute;width:19.53125%;height:8.947368%;top:40.263158%;left:10.9375%;}
+.dfjzw{display: block;position:absolute;width:22.03125%;height:10%;top:43.859649%;left:40.625%;}
+.zz{display: block;position:absolute;width:19.53125%;height:8.94368%;top:40.263158%;left:69.375%;}
+.lm{display: block;position:absolute;width:22.03125%;height:10%;top:56.140351%;left:10.625%;}
+.wdyc{display: block;position:absolute;width:22.03125%;height:10%;top:56.578947%;left:42.96875%;}
+.drf{display: block;position:absolute;width:22.03125%;height:10%;top:54.473684%;left:73.28125%;}
+.wlcs{display: block;position:absolute;width:35.78125%;height:10%;top:68.245614%;left:16.25%;}
+.hll{display: block;position:absolute;width:22.03125%;height:10%;top:69.824561%;left:63.28125%;}
+.lccb{display: block;position:absolute;width:22.03125%;height:10%;top:79.210526%;left:9.6875%;}
+.zyhcs{display: block;position:absolute;width:22.03125%;height:10%;top:83.3333%;left:39.84375%;}
+/*商户页面-吉林*/
+.jls{width:100%; height:100%;position: absolute;top:0;left:0; background: url("../images/ssBg.png") no-repeat center;
+    background-size:100% 100%; }
+.jls img{ width:100%;}
+.hll_jl{display: block;position: absolute;width:24.21875%; height:10.964912%;left:8.75%;top:63.245614%;}
+.xtdcs{display: block;position: absolute;width:24.21875%; height:10.964912%;left:29.344262%;top:77.631579%;}
+.drf_jl{display: block;position: absolute;width:24.21875%; height:10.964912%;left:66.71875%;top:66.578947%;}
+.oyjt{display: block;position: absolute;width:24.21875%; height:10.964912%;left:42.1875%;top:55.263158%;}
+.ct{display: block;position: absolute;width:24.21875%; height:10.964912%;left:57.96875%;top:41.578947%;}
+.gpp{display: block;position: absolute;width:24.21875%; height:10.964912%;left:12.96875%;top:38.3333%;}
+/*商户页面-辽宁*/
+.game{position: absolute;background: url("../images/game.png") no-repeat;background-size:100% 100%;width:38.28125%;height:15.526316%;
+top:6.22807%;left:31.25%;}
+.lns{width:100%; height:100%;position: absolute;top:0;left:0; background: url("../images/ssBg.png") no-repeat center;
+    background-size:100% 100%; }
+.lns img{width:100%;}
+.hll_ln{display: block;position: absolute;width:24.21875%;height:10.964912%;left:2.34375%;top:57.280702%;}
+.tmjt{display: block;position: absolute;width:49.0628%;height:10.964912%;left:11.25%;top:70.438596%;}
+.drf_ln{display: block;position: absolute;width:24.21875%;height:10.964912%;left:72.8125%;top:53.947368%;}
+.xtd{display: block;position: absolute;width:24.21875%;height:10.964921%;left:36.09375%;top:54.824561%;}
+.jy{display: block;position: absolute;width:24.21875%;height:10.964921%;left:22.5%;top:85.350877%;}
+.gwzx{display: block;position: absolute;width:24.21875%;height:10.964921%;left:33.4375%;top:39.298246%;}
+.jyj{display: block;position: absolute;width:24.21875%;height:10.964921%;left:66.71875%;top:69.912281%;}
+.ysd{display: block;position: absolute;width:24.21875%;height:10.964921%;left:70%;top:38.3333%;}
+.kdj{display: block;position: absolute;width:24.21875%;height:10.964912%;left:6.71875%;top:43.859649%;}
+
+
+
+
+
+

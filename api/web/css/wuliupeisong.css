@@ -1,0 +1,48 @@
+.box{padding:0 15px;}
+.top{
+	padding:10px 5px;
+	background:#ebebeb;
+	color:#898989;
+	margin-top:15px;
+}
+.top .pic{
+	width: 70px;
+	height: 70px;
+	float: left;
+	overflow: hidden;
+	margin-right: 15px;
+}
+.top .text{
+	font-size: 12px;
+	width: 68%;
+	display: inline-block;
+}
+.top .state{color:#fab700;}
+.box{
+	border-bottom:1px solid #a0a0a0;
+}
+.box ul{
+	list-style: none;
+	font-size: 12px;
+	margin-top: 20px;
+	padding-left: 30px;
+	border-left: 1px solid #a0a0a0;
+}
+.box ul li{
+	color:#898989;
+	padding-bottom:15px;
+}
+
+.box ul li img{
+	width: 8px;
+	position: absolute;
+	margin-left: -34px;
+}
+.box ul li.active{
+	color:#fab700;
+}
+.box ul li.active img{
+	width: 10px;
+    position: absolute;
+    margin-left: -35px;
+}

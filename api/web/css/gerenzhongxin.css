@@ -1,0 +1,76 @@
+body{
+	background:#fffefd;
+}
+.head_portrait{
+	width:60px;
+	height:60px;
+	margin:auto;
+	overflow:hidden;
+	border-radius:50%;
+	border:1px solid #f2c728;
+	margin-top:20px;
+}
+.name{
+	text-align:center;
+	font-size: 14px;
+	color: #fab700;
+	margin-top: 20px;
+}
+.integral{
+	text-align:center;
+	font-size:14px;
+	margin-top:20px;
+}
+.integral img{width:14px;}
+.integral span{color:#fab700;}
+.signature{
+	text-align:center;
+	margin-top:20px;
+}
+.signature input{
+	width:200px;
+	padding: 3px 5px;
+	border-radius: 6px;
+	border: 1px solid #fab700;
+	outline: none;
+	font-size: 12px;
+}
+ul.box{
+	list-style:none;
+	border-top:2px solid #fab700;
+	margin-top:20px;
+}
+.box a{text-decoration:none;}
+.box li{
+	border-bottom:2px dotted #c2c2c2;
+	padding:15px;
+	font-size:14px;
+	color:#000;
+}
+.box li img{
+	width:25px;
+}
+.box li img.icon{
+	float:left;
+	margin-top: -2px;
+	margin-right: 15px;
+}
+.box li img.go{
+	float:right;
+	margin-top:-2px;
+}
+.button{
+	width: 80px;
+	margin: auto;
+	margin-top: 12%;
+}
+.button .btn{
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	background: #fbc03d;
+	color: #fff;
+	text-align: center;
+	padding: 3px 0;
+	border-radius: 6px;
+}

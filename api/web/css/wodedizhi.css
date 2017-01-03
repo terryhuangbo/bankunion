@@ -1,0 +1,45 @@
+ul.box{
+	list-style:none;
+	padding-bottom:40px;
+}
+ul.box li{
+	font-size: 14px;
+    color: #606060;
+    padding:15px;
+    border-bottom: 1px solid #a0a0a0;
+}
+ul.box li .top .default{
+	font-size: 12px;
+	color: #fff;
+	background: #fa6400;
+	padding: 0 8px;
+}
+ul.box li .middle{
+	margin-top:5px;
+}
+ul.box li .middle .edit{
+	float:right;
+}
+ul.box li .middle .edit img{
+	width:14px;
+}
+ul.box li .bottom{
+	font-size:12px;
+	margin-top:5px;
+}
+.button{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+.button .btn{
+	display: block;
+	width: 100%;
+	text-align: center;
+	background: #fab700;
+	color: #fff;
+	padding: 10px 0;
+	text-decoration:none;
+	font-size:16px;
+}
