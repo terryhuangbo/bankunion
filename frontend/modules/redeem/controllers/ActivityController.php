@@ -33,10 +33,10 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
-        $touser = "oZFzUt4oudWrJwmmaWQ_RvtLSn6I";
-        $content = '黄波测试，哈哈哈';
-        $APPID = "wxc4c37b00bea02be5";
-        $APPSECRET = "f68118d962389fb6f3c6945f3b559244";
+        $touser = "onP0htz2OoARzmQzp3NQk_itbB5U";
+        $content = 'huangbo is good man' . time();
+        $APPID = "wx9462dd181a56c284";
+        $APPSECRET = "6a6d79adca5a20309e05350da253bdae";
 
         $TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $APPID . "&secret=" . $APPSECRET;
 
@@ -50,13 +50,20 @@ class ActivityController extends BaseController
             'text' => [
                 'content' => $content
             ],
+            'customservice' => [
+                'kf_account' => 'test@kangheyuan2015'
+            ],
+
         ];
 
 
+
         $url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" . $ACC_TOKEN;
+//        $url = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token=" . $ACC_TOKEN;
         $data = json_encode($data);
         $result = json_decode(Http::_post($url, $data), true);
-        lg($ACC_TOKEN);
+//        $result = json_decode(Http::_get($url, $data), true);
+        lg($result);
         return VarDumper::export($result);
 
 //        return $this->render('index');
