@@ -3,8 +3,6 @@ html,body{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
 /*活动页面*/
 .bg{width:100%; height:100%;background: url("../images/indexBg.png") no-repeat center;
     background-size:100% 100%; position: relative;}
-.bg .tree{position: absolute;left:6.086957%;;top:74.647887%;width:15.15625%;height:13.820423%;}
-.bg .right{position: absolute;left:52.34375%;;top:66%;width:43.125%;height:24.383803%;}
 .rule{display: block; width:33.28125%;height:14.210526%;  position: absolute;top:73.070175%;left:32.65625%;
     background: url("../images/actrule.png") no-repeat;background-size:100% 100%; }
 .sign{display: block; width:37.03125%;height:12.45614%;  position: absolute;top:83.421053%;left:4.53125%;
