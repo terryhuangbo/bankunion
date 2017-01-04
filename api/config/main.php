@@ -31,16 +31,8 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => [
-                        'v1/site'
-                    ]
+                    'controller' => ['v1/goods']
                 ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => [
-                        'v2/site'
-                    ]
-                ]
             ]
         ],
         'log' => [

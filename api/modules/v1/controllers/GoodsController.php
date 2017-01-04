@@ -1,12 +1,15 @@
 <?php
 
 namespace api\modules\v1\controllers;
+use yii\rest\ActiveController;
 
-class GoodsController extends \yii\web\Controller
+class GoodsController extends ActiveController
 {
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
+    public $modelClass = 'api\models\Goods';
+
+//    public function actionIndex()
+//    {
+//        return 123;
+//    }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace api\models;
 
 use Yii;
 
@@ -58,4 +58,26 @@ class Goods extends \yii\db\ActiveRecord
             'create_at' => 'Create At',
         ];
     }
+
+    public function fields()
+    {
+        return [
+            'gid',
+            'my_name' => 'name',
+            'create_at' => function($m){
+                return date('Y-m-d H:i:s', $m->create_at);
+            },
+            'pionts' => 'redeem_pionts',
+        ];
+
+    }
+
+    public function extraFields()
+    {
+        return [
+            'status' => 'goods_status'
+        ];
+    }
+
+
 }
