@@ -139,7 +139,7 @@ class User extends BaseModel implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-
+        return static::findOne(['authKey' => $token, 'user_status' => self::NO_DELETE]);
     }
 
     /**
