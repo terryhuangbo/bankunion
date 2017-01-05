@@ -3,6 +3,7 @@
 namespace api\models;
 
 use Yii;
+use yii\filters\RateLimitInterface;
 
 /**
  * This is the model class for table "{{%goods}}".
@@ -36,6 +37,8 @@ class User extends \common\models\User
         ];
 
     }
+
+
 
 
 

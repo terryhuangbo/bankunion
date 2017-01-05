@@ -8,6 +8,7 @@ use common\behavior\TimeBehavior;
 use common\lib\RegexValidator;
 use Yii;
 use yii\base\Exception;
+use yii\filters\RateLimitInterface;
 use yii\web\IdentityInterface;
 
 /**
@@ -27,10 +28,11 @@ use yii\web\IdentityInterface;
  * @property integer $user_status
  * @property integer $update_at
  * @property integer $create_at
+ * @property integer $allowance
+ * @property integer $allowance_updated_at
  */
-class User extends BaseModel implements IdentityInterface
+class User extends BaseModel implements IdentityInterface, RateLimitInterface
 {
-
     /**
      * 用户类型
      */
@@ -100,6 +102,8 @@ class User extends BaseModel implements IdentityInterface
             'update_at' => '更新时间',
             'create_at' => '创建时间',
             'login_at' => '最近登录时间',
+            'allowance' => '当前允许访问次数',
+            'allowance_updated_at' => '当前时间戳',
         ];
     }
 
@@ -135,6 +139,8 @@ class User extends BaseModel implements IdentityInterface
     }
 
     /**
+     * Restful AIPs 需要实现的接口，让应用变成有状态的，相当于web应用中通过COOKIE来判断登录用户
+     * 这里存在一定的安全风险
      * @inheritdoc
      */
     public static function findIdentityByAccessToken($token, $type = null)
@@ -606,6 +612,23 @@ class User extends BaseModel implements IdentityInterface
             return ['code' => -20000, 'msg' => $e->getMessage()];
         }
 
+    }
+
+    // 返回某一时间允许请求的最大数量，比如设置10秒内最多5次请求（小数量方便我们模拟测试）
+    public  function getRateLimit($request, $action){
+        return [5, 10];
+    }
+
+    // 回剩余的允许的请求和相应的UNIX时间戳数 当最后一次速率限制检查时
+    public  function loadAllowance($request, $action){
+        return [$this->allowance, $this->allowance_updated_at];
+    }
+
+    // 保存允许剩余的请求数和当前的UNIX时间戳
+    public  function saveAllowance($request, $action, $allowance, $timestamp){
+        $this->allowance = $allowance;
+        $this->allowance_updated_at = $timestamp;
+        $this->save();
     }
 
 }

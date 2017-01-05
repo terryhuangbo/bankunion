@@ -16,7 +16,8 @@ class UserController extends ActiveController
             'authenticator' => [
                 'class' => QueryParamAuth::className(),
                 'tokenParam' => 'token',
-            ]
+            ],
+
         ]);
     }
 //    public function actionIndex()
