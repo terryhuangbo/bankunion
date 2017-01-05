@@ -70,6 +70,9 @@ class Goods extends \yii\db\ActiveRecord
                 return date('Y-m-d H:i:s', $m->create_at);
             },
             'pionts' => 'redeem_pionts',
+            'description' => function($model){
+                return $model->description;
+            },
         ];
 
     }

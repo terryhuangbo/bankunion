@@ -31,7 +31,7 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['v1/goods', 'v1/user', 'v1/order', ]
+                    'controller' => ['v1/goods', 'v1/user', 'v1/order', 'v1/site']
                 ],
             ]
         ],
