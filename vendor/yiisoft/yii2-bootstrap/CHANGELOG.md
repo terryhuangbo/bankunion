@@ -1,8 +1,43 @@
 Yii Framework 2 bootstrap extension Change Log
 ==============================================
 
-2.0.4 under development
+2.0.7 under development
 -----------------------
+
+- Enh #145: Added the ability to customize the class used to draw dropdowns in `yii\bootstrap\Nav`, `yii\bootstrapButtonDropdown` and `yii\bootstrap\Tab` widgets (PowerGamer1)
+- Bug #126: `yii\bootstrap\ToggleButtonGroup` was unable to work without model (makroxyz)
+- Bug #130: Fixed `yii\bootstrap\Collapse` to use pure numerical value on `content` property (meysampg)
+- Bug #137: Remove `role="navbar"` from `yii\bootstrap\NavBar` according to new aria specification (tino415)
+- Enh #113: Allow URLs instead of content for Tab Widget Dropdown items (Okeanos)
+- Bug #143: Fixed `yii\bootstrap\Nav` to use tags according to bootstrap docs (PowerGamer1)
+- Bug #162: Fixed `yii\bootstrap\Nav` not taking explicit `active` into account when `activateItems` is off (samdark)
+
+2.0.6 March 17, 2016
+--------------------
+
+- Bug #68: Fixed `yii\bootstrap\Nav` handling empty items (freezy-sk)
+- Bug #81: Fixed `yii\bootstrap\ActiveField::radioList()` and `yii\bootstrap\ActiveField::checkboxList()` ignore `itemOptions` (mikehaertl)
+- Bug #98: Fixed `yii\bootstrap\ButtonDropdown` setting `href` attribute for non `a` tags (13nightevil)
+- Bug #124: Fixed `yii\bootstrap\Tabs` to use `tag` configuration option for item container (arturf)
+- Enh #45: Added support for Bootstrap checkbox/radio toggle buttons (RomeroMsk, klimov-paul)
+- Enh #92: Allow overriding `data-toggle` in `yii\bootstrap\Tabs` (machour)
+
+
+2.0.5 September 23, 2015
+------------------------
+
+- Enh #15: Allowed overriding default Bootstrap CSS classes added by widgets (klimov-paul)
+- Enh #38: Added object support for `content` option in `Collapse` class (pana1990, ItsReddi)
+- Enh #40: Added `visible` option to `yii\bootstrap\Tab` widget items (klimov-paul)
+- Enh #41: Added `submenuOptions` support at `yii\bootstrap\Dropdown` (spikyjt, klimov-paul)
+- Enh #42: Added support for the glyphicons via `yii\bootstrap\Html::icon()` (klimov-paul)
+- Enh #43: Added support for the static form controls via `yii\bootstrap\Html` (klimov-paul)
+- Enh #44: Fixed `yii\bootstrap\ButtonDropdown` renders two buttons with the same id, if 'split' is enabled (klimov-paul)
+- Enh #50: Added `dropDownOptions` that is passed to `yii\bootstrap\Nav` dropdown items (fbau123)
+
+
+2.0.4 May 10, 2015
+------------------
 
 - Bug #18: `label` option ignored by `yii\bootstrap\Activefield::checkbox()` and `yii\bootstrap\Activefield::radio()` (mikehaertl)
 - Bug #5984: `yii\bootstrap\Activefield::checkbox()` caused browser to link label to the wrong input (cebe)

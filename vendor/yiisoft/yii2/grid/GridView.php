@@ -41,6 +41,8 @@ use yii\base\Model;
  *
  * The look and feel of a grid view can be customized using the large amount of properties.
  *
+ * For more details and usage information on GridView, see the [guide article on data widgets](guide:output-data-widgets).
+ *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
@@ -118,15 +120,15 @@ class GridView extends BaseListView
      */
     public $afterRow;
     /**
-     * @var boolean whether to show the header section of the grid table.
+     * @var bool whether to show the header section of the grid table.
      */
     public $showHeader = true;
     /**
-     * @var boolean whether to show the footer section of the grid table.
+     * @var bool whether to show the footer section of the grid table.
      */
     public $showFooter = false;
     /**
-     * @var boolean whether to show the grid view if [[dataProvider]] returns no data.
+     * @var bool whether to show the grid view if [[dataProvider]] returns no data.
      */
     public $showOnEmpty = true;
     /**
@@ -185,7 +187,13 @@ class GridView extends BaseListView
      */
     public $columns = [];
     /**
-     * @var string the HTML display when the content of a cell is empty
+     * @var string the HTML display when the content of a cell is empty.
+     * This property is used to render cells that have no defined content,
+     * e.g. empty footer or filter cells.
+     *
+     * Note that this is not used by the [[DataColumn]] if a data item is `null`. In that case
+     * the [[\yii\i18n\Formatter::nullDisplay|nullDisplay]] property of the [[formatter]] will
+     * be used to indicate an empty data value.
      */
     public $emptyCell = '&nbsp;';
     /**
@@ -194,7 +202,8 @@ class GridView extends BaseListView
      * at the top that users can fill in to filter the data.
      *
      * Note that in order to show an input field for filtering, a column must have its [[DataColumn::attribute]]
-     * property set or have [[DataColumn::filter]] set as the HTML code for the input field.
+     * property set and the attribute should be active in the current scenario of $filterModel or have
+     * [[DataColumn::filter]] set as the HTML code for the input field.
      *
      * When this property is not set (null) the filtering feature is disabled.
      */
@@ -254,7 +263,7 @@ class GridView extends BaseListView
     public function init()
     {
         parent::init();
-        if ($this->formatter == null) {
+        if ($this->formatter === null) {
             $this->formatter = Yii::$app->getFormatter();
         } elseif (is_array($this->formatter)) {
             $this->formatter = Yii::createObject($this->formatter);
@@ -301,7 +310,7 @@ class GridView extends BaseListView
     public function renderSection($name)
     {
         switch ($name) {
-            case "{errors}":
+            case '{errors}':
                 return $this->renderErrors();
             default:
                 return parent::renderSection($name);
@@ -399,9 +408,9 @@ class GridView extends BaseListView
             $cells[] = $column->renderHeaderCell();
         }
         $content = Html::tag('tr', implode('', $cells), $this->headerRowOptions);
-        if ($this->filterPosition == self::FILTER_POS_HEADER) {
+        if ($this->filterPosition === self::FILTER_POS_HEADER) {
             $content = $this->renderFilters() . $content;
-        } elseif ($this->filterPosition == self::FILTER_POS_BODY) {
+        } elseif ($this->filterPosition === self::FILTER_POS_BODY) {
             $content .= $this->renderFilters();
         }
 
@@ -420,7 +429,7 @@ class GridView extends BaseListView
             $cells[] = $column->renderFooterCell();
         }
         $content = Html::tag('tr', implode('', $cells), $this->footerRowOptions);
-        if ($this->filterPosition == self::FILTER_POS_FOOTER) {
+        if ($this->filterPosition === self::FILTER_POS_FOOTER) {
             $content .= $this->renderFilters();
         }
 
@@ -487,7 +496,7 @@ class GridView extends BaseListView
      * Renders a table row with the given data model and key.
      * @param mixed $model the data model to be rendered
      * @param mixed $key the key associated with the data model
-     * @param integer $index the zero-based index of the data model among the model array returned by [[dataProvider]].
+     * @param int $index the zero-based index of the data model among the model array returned by [[dataProvider]].
      * @return string the rendering result
      */
     public function renderTableRow($model, $key, $index)
@@ -563,7 +572,9 @@ class GridView extends BaseListView
         $model = reset($models);
         if (is_array($model) || is_object($model)) {
             foreach ($model as $name => $value) {
-                $this->columns[] = $name;
+                if ($value === null || is_scalar($value) || is_callable([$value, '__toString'])) {
+                    $this->columns[] = (string) $name;
+                }
             }
         }
     }

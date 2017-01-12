@@ -1,8 +1,46 @@
 Yii Framework 2 gii extension Change Log
 ========================================
 
-2.0.4 under development
+2.0.6 under development
 -----------------------
+
+- Bug #100, #102: Fixed "Check This File" button in the preview modal (Insensus, thiagotalma)
+- Bug #149: Relation names no longer override existing methods and properties (Faryshta)
+- Bug #152: Fixed generating model without any rules (and800)
+- Enh #153: Added filename filter to generated files list preview (thiagotalma)
+- Enh #162: Model generator now detects foreign keys named as `id_*` (mootensai, samdark)
+- Bug #126, #139: Fixed model generator form validation when "ActiveQuery Class" is invalid but unused (kikimor)
+- Enh #167: Added "generating relations from current schema" option to model generator (zlakomanoff)
+- Bug #166: Fixed "Trying to get property of non-object" during model generation (zlakomanoff)
+- Bug #179: Fixed indentation and newlines for Pjax widget in crud index view (nkovacs)
+- Bug #186: Fixed incorrect database name exception (zlakomanoff, shirase)
+- Bug #200: Fixed Pjax and Listview with CRUD generator (ariestattoo)
+- Chg: Updated version constraint for `yiisoft/yii2` in extension template to `~2.0.0` to ensure compatibility when 2.1 is released (cebe)
+- Enh: `yii\gii\Module::defaultVersion()` implemented to pick up 'yiisoft/yii2-gii' extension version (klimov-paul)
+
+2.0.5 March 18, 2016
+--------------------
+
+- Bug #66: It was impossible to use tables with spaces (cornernote)
+- Bug #79: There was no form element to toggle using schema name for class name (phpniki)
+- Bug #83: Files were overwritten regardless of answers in console Gii (chernyshev, jeicd)
+- Bug #104: Allow reuse of the Gii Module for running multiple actions (cebe)
+- Bug #109: Exception was thrown when `yii\rest\UrlRule` was used in `UrlManager::ruleConfig` (lichunqiang)
+- Bug #116: Added table prefix autoremoving from the generated model className (umanamente, silverfire)
+- Bug #134: Model generator was not validating ActiveQuery namespace (zetamen)
+- Enh #20: Added support for composite (multi-column) foreign keys in junction tables (nineinchnick)
+- Enh #34: Model generator now skips FKs pointing to non-existing tables (samdark)
+- Enh #42: Entire preview code now can be copied by pressing CTRL+C (thiagotalma, samdark)
+- Enh #54: Model generator is now able to generate reverse relations (nineinchnick)
+- Enh #56: Model generator now generates exist rules based on table foreign keys (Faryshta, samdark)
+- Enh #95: More parameters are now available in `query.php` view of model generator (demisang)
+- Enh #99: Added `enablePjax` option to wrap GridView with Pjax (Faryshta, silverfire)
+- Enh #135: Footer now sticks to the bottom of the page (zetamen)
+- Chg #38: Added compatibility with latest Typeahead version (razvanphp)
+
+
+2.0.4 May 10, 2015
+------------------
 
 - Bug #5098: Properly detect hasOne relations (nineinchnick)
 - Bug #6667: Gii form generator rendering mistake view (pana1990)

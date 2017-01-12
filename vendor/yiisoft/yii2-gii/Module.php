@@ -9,6 +9,7 @@ namespace yii\gii;
 
 use Yii;
 use yii\base\BootstrapInterface;
+use yii\helpers\Json;
 use yii\web\ForbiddenHttpException;
 
 /**
@@ -86,9 +87,9 @@ class Module extends \yii\base\Module implements BootstrapInterface
     {
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                $this->id => $this->id . '/default/index',
-                $this->id . '/<id:\w+>' => $this->id . '/default/view',
-                $this->id . '/<controller:[\w\-]+>/<action:[\w\-]+>' => $this->id . '/<controller>/<action>',
+                ['class' => 'yii\web\UrlRule', 'pattern' => $this->id, 'route' => $this->id . '/default/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => $this->id . '/<id:\w+>', 'route' => $this->id . '/default/view'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => $this->id . '/<controller:[\w\-]+>/<action:[\w\-]+>', 'route' => $this->id . '/<controller>/<action>'],
             ], false);
         } elseif ($app instanceof \yii\console\Application) {
             $app->controllerMap[$this->id] = [
@@ -113,7 +114,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
         }
 
         foreach (array_merge($this->coreGenerators(), $this->generators) as $id => $config) {
-            $this->generators[$id] = Yii::createObject($config);
+            if (is_object($config)) {
+                $this->generators[$id] = $config;
+            } else {
+                $this->generators[$id] = Yii::createObject($config);
+            }
         }
 
         $this->resetGlobalSettings();
@@ -161,5 +166,19 @@ class Module extends \yii\base\Module implements BootstrapInterface
             'module' => ['class' => 'yii\gii\generators\module\Generator'],
             'extension' => ['class' => 'yii\gii\generators\extension\Generator'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     * @since 2.0.6
+     */
+    protected function defaultVersion()
+    {
+        $packageInfo = Json::decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'composer.json'));
+        $extensionName = $packageInfo['name'];
+        if (isset(Yii::$app->extensions[$extensionName])) {
+            return Yii::$app->extensions[$extensionName]['version'];
+        }
+        return parent::defaultVersion();
     }
 }
