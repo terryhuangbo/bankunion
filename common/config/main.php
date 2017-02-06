@@ -8,25 +8,15 @@ return [
     'timeZone' => 'Asia/Shanghai',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
-//        'cache' => [
-//            'class' => 'yii\caching\MemCache',
-//            'servers' => [
-//                [
-//                    'host' => '127.0.0.1',
-//                    'port' => 11211,
-//                    'weight' => 60,
-//                ],
-//                [
-//                    'host' => '127.0.0.1',
-//                    'port' => 11211,
-//                    'weight' => 40,
-//                ],
-//            ],
-//        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '192.168.11.21',
+            'port' => 6379,
+            'database' => 0
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
 //            'enableStrictParsing' => true,

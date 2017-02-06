@@ -26,6 +26,11 @@ class ActivityController extends BaseController
      */
     public function actionIndex()
     {
+        $redis = Yii::$app->redis;
+
+        $redis->set('test', 12334);
+        lg($redis->get('test'));
+
         return $this->render('index');
     }
 
