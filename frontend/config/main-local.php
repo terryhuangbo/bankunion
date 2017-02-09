@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Chuang
+ * User: Huangbo
  * Date: 2015/5/17
  * Time: 20:38
  */
@@ -19,6 +19,7 @@ if (!YII_ENV_TEST) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
+        'allowedIPs' => ['127.0.0.1', '172.18.0.1'] // 按需调整这里,
     ];
 
     $config['bootstrap'][] = 'gii';
